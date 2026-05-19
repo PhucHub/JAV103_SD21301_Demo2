@@ -1,4 +1,4 @@
-package com.demo.jav103_sum25_demo1.jdbc;
+package com.jav103.jav103_sum25_demo2.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

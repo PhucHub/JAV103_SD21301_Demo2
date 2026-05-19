@@ -1,6 +1,5 @@
-package com.demo.jav103_sum25_demo1.jdbc;
-
-import com.demo.jav103_sum25_demo1.utils.EntityManagerUtils;
+package com.jav103.jav103_sum25_demo2.jdbc;
+import com.jav103.jav103_sum25_demo2.utils.EntityManagerUtils;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -21,11 +20,11 @@ public class JdbcMain {
         }
 
         try (var em = EntityManagerUtils.getEntityManager()) {
-            System.out.println("Created tablesss...");
+            System.out.println("Created tables...");
 
 
         }catch (Exception e) {
-            System.out.println("Failed to connect to database");
+            System.out.println("Failed to connect to JDBC");
             e.printStackTrace();
         }
 

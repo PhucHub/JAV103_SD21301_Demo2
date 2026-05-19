@@ -1,9 +1,9 @@
-package com.demo.jav103_sum25_demo1.entity;
+package com.jav103.jav103_sum25_demo2.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-//help
+
 @Entity
 @Table(name = "students")
 public class Student {

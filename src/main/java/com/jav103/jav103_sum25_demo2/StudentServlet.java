@@ -1,11 +1,12 @@
-package com.demo.jav103_sum25_demo1;
+package com.jav103.jav103_sum25_demo2;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(value = "/StudentServlet")
 public class StudentServlet extends HttpServlet {
