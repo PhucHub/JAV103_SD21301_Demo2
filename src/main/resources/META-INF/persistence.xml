@@ -15,7 +15,7 @@
             <property name="jakarta.persistence.jdbc.url"
                       value="jdbc:sqlserver://localhost:1433;DatabaseName=JAV103_SD21301;encrypt=true;trustServerCertificate=true;loginTimeout=30;"/>
             <property name="jakarta.persistence.jdbc.user" value="sa"/>
-            <property name="jakarta.persistence.jdbc.password" value="1234"/>
+            <property name="jakarta.persistence.jdbc.password" value="1234@"/>
 
             <!-- Hibernate-specific property to enable autocommit -->
             <property name="hibernate.connection.autocommit" value="true"/>
