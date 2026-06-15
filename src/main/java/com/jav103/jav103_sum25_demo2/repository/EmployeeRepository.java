@@ -1,23 +1,25 @@
 package com.jav103.jav103_sum25_demo2.repository;
 
-import com.jav103.jav103_sum25_demo2.entity.Student;
+import com.jav103.jav103_sum25_demo2.entity.Employee;
 import com.jav103.jav103_sum25_demo2.utils.EntityManagerUtils;
 import jakarta.persistence.EntityManager;
 
 import java.util.List;
 
-public class StudentRepository {
+public class EmployeeRepository {
 
 
-    public List<Student> getStudents() {
+    public List<Employee> getEmployees() {
         try(EntityManager em = EntityManagerUtils.getEntityManager()) {
-          return em.createQuery("select s from Student s", Student.class).getResultList();
+          return em.createQuery("select e from Employee e left join fetch e.department", Employee.class).getResultList();
         }
     }
 
-    public Student getStudentById(Long id) {
+    public Employee getEmployeeById(Long id) {
         try(EntityManager em = EntityManagerUtils.getEntityManager()) {
-            return em.find(Student.class, id);
+            return em.createQuery("select e from Employee e left join fetch e.department where e.id = :id", Employee.class)
+                    .setParameter("id", id)
+                    .getSingleResult();
 
         }catch (Exception e) {
         e.printStackTrace();
@@ -25,30 +27,30 @@ public class StudentRepository {
         }
     }
 
-    public void deleteStudent(Long id) {
+    public void deleteEmployee(Long id) {
         try(EntityManager em = EntityManagerUtils.getEntityManager()) {
             em.getTransaction().begin();
-            Student student = em.find(Student.class, id);
-            if (student != null) {
-                em.remove(student);
+            Employee employee = em.find(Employee.class, id);
+            if (employee != null) {
+                em.remove(employee);
             }
             em.getTransaction().commit();
         }
     }
 
-    public void addStudent(Student student) {
+    public void addEmployee(Employee employee) {
         try(EntityManager em = EntityManagerUtils.getEntityManager()) {
             em.getTransaction().begin();
-            em.persist(student);
+            em.persist(employee);
             em.getTransaction().commit();
         }
 
     }
 
-    public void editStudent(Student student) {
+    public void editEmployee(Employee employee) {
         try(EntityManager em = EntityManagerUtils.getEntityManager()) {
             em.getTransaction().begin();
-            em.merge(student);
+            em.merge(employee);
             em.getTransaction().commit();
         }
     }

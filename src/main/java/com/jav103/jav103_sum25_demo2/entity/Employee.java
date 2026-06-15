@@ -1,26 +1,29 @@
 package com.jav103.jav103_sum25_demo2.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "students")
-public class Student {
+@Table(name = "employees")
+public class Employee {
+
     @Id
     private Long id;
     private String name;
     private String email;
-    private String phone;
+    private Double salary;
 
-    public Student() {
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Department department;
 
-    public Student(Long id, String name, String email, String phone) {
+    public Employee() {}
+
+    public Employee(Long id, String name, String email, Double salary, Department department) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.phone = phone;
+        this.salary = salary;
+        this.department = department;
     }
 
     public Long getId() {
@@ -47,21 +50,29 @@ public class Student {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public Double getSalary() {
+        return salary;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Employee{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
+                ", salary=" + salary +
                 '}';
     }
 }

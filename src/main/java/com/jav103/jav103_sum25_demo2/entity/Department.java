@@ -7,24 +7,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "categories")
-public class Category {
+@Table(name = "departments")
+public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Product> products = new ArrayList<>();
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Employee> employees = new ArrayList<>();
 
-    public Category() {
+    public Department() {
     }
 
-    public Category(Long id, String name, List<Product> products) {
+    public Department(Long id, String name, List<Employee> employees) {
         this.id = id;
         this.name = name;
-        this.products = products;
+        this.employees = employees;
     }
 
     public Long getId() {
@@ -43,24 +43,24 @@ public class Category {
         this.name = name;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public List<Employee> getEmployees() {
+        return employees;
     }
 
-    public void setProduct(Product product) {
-        this.products.add(product);
+    public void setEmployee(Employee employee) {
+        this.employees.add(employee);
     }
 
-    public void removeProduct(Product product) {
-        this.products.remove(product);
+    public void removeEmployee(Employee employee) {
+        this.employees.remove(employee);
     }
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "Department{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", products=" + products +
+                ", employees=" + employees +
                 '}';
     }
 }
