@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.jav103.jav103_sum25_demo2.entity.Student" %>
+<%@ page import="com.jav103.jav103_sum26_demo2.entity.Student" %>
 <%@ page import="java.util.List" %>
 
 <!DOCTYPE html>

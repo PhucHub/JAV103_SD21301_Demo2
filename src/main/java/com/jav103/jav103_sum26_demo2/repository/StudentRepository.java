@@ -1,7 +1,7 @@
-package com.jav103.jav103_sum25_demo2.repository;
+package com.jav103.jav103_sum26_demo2.repository;
 
-import com.jav103.jav103_sum25_demo2.entity.Student;
-import com.jav103.jav103_sum25_demo2.utils.EntityManagerUtils;
+import com.jav103.jav103_sum26_demo2.entity.Student;
+import com.jav103.jav103_sum26_demo2.utils.EntityManagerUtils;
 import jakarta.persistence.EntityManager;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.jav103.jav103_sum25_demo2.entity;
+package com.jav103.jav103_sum26_demo2.entity;
 
 
 import jakarta.persistence.*;
@@ -12,7 +12,7 @@ public class Product {
     private String name;
     private Double price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Category category;
 
     public Product() {}

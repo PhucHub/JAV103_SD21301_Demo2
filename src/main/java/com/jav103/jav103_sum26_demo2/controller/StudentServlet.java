@@ -1,7 +1,7 @@
-package com.jav103.jav103_sum25_demo2.controller;
+package com.jav103.jav103_sum26_demo2.controller;
 
-import com.jav103.jav103_sum25_demo2.entity.Student;
-import com.jav103.jav103_sum25_demo2.services.StudentServices;
+import com.jav103.jav103_sum26_demo2.entity.Student;
+import com.jav103.jav103_sum26_demo2.services.StudentServices;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -43,10 +43,11 @@ public class StudentServlet extends HttpServlet {
     }
 
 
+
     private void listStudents(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Student> students = sv.getStudents();
         request.setAttribute("students", students);
-        request.getRequestDispatcher("/views/student.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/student/student.jsp").forward(request, response);
     }
 
     private void viewStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -57,7 +58,7 @@ public class StudentServlet extends HttpServlet {
             request.setAttribute("studentDetail", student);
         }
 
-        request.getRequestDispatcher("/views/student-detail.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/student/student-detail.jsp").forward(request, response);
     }
 
     private void deleteStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -72,7 +73,7 @@ public class StudentServlet extends HttpServlet {
 
     }
     private void addForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/views/new-student.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/student/new-student.jsp").forward(request, response);
     }
 
     private void editForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -85,24 +86,24 @@ public class StudentServlet extends HttpServlet {
             request.setAttribute("student", student);
         }
 
-        request.getRequestDispatcher("/views/edit-student.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/student/edit-student.jsp").forward(request, response);
     }
 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String path = request.getServletPath();
+            String path = request.getServletPath();
 
-         switch (path) {
-            case "/students/insert":
-                insertStudent(request, response);
-                break;
+             switch (path) {
+                case "/students/insert":
+                    insertStudent(request, response);
+                    break;
 
-            case "/student-edit":
-                editStudent(request, response);
-                break;
-         }
+                case "/student-edit":
+                    editStudent(request, response);
+                    break;
+             }
     }
 
     private void insertStudent(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -112,7 +113,7 @@ public class StudentServlet extends HttpServlet {
             request.setAttribute("errorMessage", "Tên không được để trống");
             request.setAttribute("student", student);
 
-            request.getRequestDispatcher("/views/new-student.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/student/new-student.jsp").forward(request, response);
             return;
         }
         sv.addStudent(student);
@@ -135,7 +136,7 @@ public class StudentServlet extends HttpServlet {
             request.setAttribute("errorMessage", "Tên không được để trống");
             request.setAttribute("student", student);
 
-            request.getRequestDispatcher("/views/edit-student.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/student/edit-student.jsp").forward(request, response);
             return;
         }
 

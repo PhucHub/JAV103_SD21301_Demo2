@@ -1,5 +1,5 @@
-package com.jav103.jav103_sum25_demo2.jdbc;
-import com.jav103.jav103_sum25_demo2.utils.EntityManagerUtils;
+package com.jav103.jav103_sum26_demo2.jdbc;
+import com.jav103.jav103_sum26_demo2.utils.EntityManagerUtils;
 
 import java.sql.Connection;
 import java.sql.SQLException;

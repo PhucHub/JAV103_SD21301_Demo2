@@ -1,7 +1,7 @@
-package com.jav103.jav103_sum25_demo2.services;
+package com.jav103.jav103_sum26_demo2.services;
 
-import com.jav103.jav103_sum25_demo2.entity.Student;
-import com.jav103.jav103_sum25_demo2.repository.StudentRepository;
+import com.jav103.jav103_sum26_demo2.entity.Student;
+import com.jav103.jav103_sum26_demo2.repository.StudentRepository;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.jav103.jav103_sum25_demo2.utils;
+package com.jav103.jav103_sum26_demo2.utils;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
