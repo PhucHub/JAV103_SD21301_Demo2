@@ -11,6 +11,12 @@
 
 <h2>Danh sách nhân viên</h2>
 
+
+<form action="${pageContext.request.contextPath}/employees" method="get" style="margin-bottom: 15px;">
+    <input type="text" name="search" placeholder="Nhập tên nhân viên..." value="<%= request.getParameter("search") != null ? request.getParameter("search") : "" %>" />
+    <button type="submit">Tìm kiếm</button>
+</form>
+
 <button style="padding: 8px;margin-bottom:5px"><a href="${pageContext.request.contextPath}/add-form">Add</a></button>
 
 

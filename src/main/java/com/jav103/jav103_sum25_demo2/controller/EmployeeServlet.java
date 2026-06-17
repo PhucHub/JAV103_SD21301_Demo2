@@ -44,7 +44,15 @@ public class EmployeeServlet extends HttpServlet {
 
 
     private void listEmployees(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Employee> employees = sv.getEmployees();
+        String keyword = request.getParameter("search");
+        List<Employee> employees;
+
+        if (keyword != null && !keyword.trim().isEmpty()) {
+            employees = sv.searchByName(keyword.trim());
+        } else {
+            employees = sv.getEmployees();
+        }
+
         request.setAttribute("employees", employees);
         request.getRequestDispatcher("/views/employee.jsp").forward(request, response);
     }

@@ -15,6 +15,14 @@ public class EmployeeRepository {
         }
     }
 
+    public List<Employee> searchByName(String name) {
+        try(EntityManager em = EntityManagerUtils.getEntityManager()) {
+            return em.createQuery("select e from Employee e left join fetch e.department where e.name like :name", Employee.class)
+                    .setParameter("name", "%" + name + "%")
+                    .getResultList();
+        }
+    }
+
     public Employee getEmployeeById(Long id) {
         try(EntityManager em = EntityManagerUtils.getEntityManager()) {
             return em.createQuery("select e from Employee e left join fetch e.department where e.id = :id", Employee.class)

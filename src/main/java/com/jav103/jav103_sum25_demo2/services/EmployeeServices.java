@@ -13,6 +13,10 @@ public class EmployeeServices {
         return employeeRepository.getEmployees();
     }
 
+    public List<Employee> searchByName(String name) {
+        return employeeRepository.searchByName(name);
+    }
+
     public Employee getEmployeeById(Long id) {
         return employeeRepository.getEmployeeById(id);
 
