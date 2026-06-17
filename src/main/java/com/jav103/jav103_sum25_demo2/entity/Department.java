@@ -1,10 +1,6 @@
 package com.jav103.jav103_sum25_demo2.entity;
 
-
 import jakarta.persistence.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "departments")
@@ -12,19 +8,21 @@ public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String code;
     private String name;
 
-
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Employee> employees = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public Department() {
     }
 
-    public Department(Long id, String name, List<Employee> employees) {
+    public Department(Long id, String code, String name, Category category) {
         this.id = id;
+        this.code = code;
         this.name = name;
-        this.employees = employees;
+        this.category = category;
     }
 
     public Long getId() {
@@ -35,6 +33,14 @@ public class Department {
         this.id = id;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public String getName() {
         return name;
     }
@@ -43,24 +49,20 @@ public class Department {
         this.name = name;
     }
 
-    public List<Employee> getEmployees() {
-        return employees;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employees.add(employee);
-    }
-
-    public void removeEmployee(Employee employee) {
-        this.employees.remove(employee);
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
     public String toString() {
         return "Department{" +
                 "id=" + id +
+                ", code='" + code + '\'' +
                 ", name='" + name + '\'' +
-                ", employees=" + employees +
                 '}';
     }
 }

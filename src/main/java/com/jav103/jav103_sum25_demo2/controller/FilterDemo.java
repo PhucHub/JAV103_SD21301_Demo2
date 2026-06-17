@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebFilter(filterName = "FilterDemo", urlPatterns = "/filterInput")
+@WebFilter(filterName = "FilterDemo", urlPatterns = "/login")
 public class FilterDemo implements Filter {
 
     @Override
@@ -31,28 +31,25 @@ public class FilterDemo implements Filter {
             return;
         }
 
-
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-
         if (username == null || password == null) {
             request.setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin!");
-            request.getRequestDispatcher("/views/filter/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/login.jsp").forward(request, response);
             return;
         }
 
-
-        if (username.equals("admin") && password.equals("123456")) {
+        if (username.equals("admin") && password.equals("12345")) {
 
             HttpSession session = request.getSession();
             session.setAttribute("loggedInUser", username);
 
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
-            request.setAttribute("errorMessage", "Sai tên đăng nhập hoặc mật khẩu!");
+            request.setAttribute("errorMessage", "Sai tên đăng nhập hoặc mật khẩu !");
             request.setAttribute("username", username);
-            request.getRequestDispatcher("/views/filter/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/login.jsp").forward(request, response);
         }
     }
 
